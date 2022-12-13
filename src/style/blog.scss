@@ -2,6 +2,37 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+
+  .admin-blog-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      margin-left: 15px;
+      cursor: pointer;
+    }
+  }
+
+  .new-blog-link {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+    a {
+      font-size: 3em;
+      cursor: pointer;
+      color: $teal;
+      margin-right: 15px;
+      margin-bottom: 15px;
+      transition: 0.5s ease-in-out;
+
+      &:hover {
+        color: $dark-teal;
+      }
+    }
+  }
 
   .content-container {
     display: flex;
@@ -11,7 +42,7 @@
     a {
       text-decoration: none;
       color: $teal;
-      transform: 0.5s ease-in-out;
+      transition: 0.5s ease-in-out;
 
       &:hover {
         color: $dark-teal;
@@ -19,9 +50,9 @@
     }
 
     h1 {
-        font-size: 1.5em;
-        
+      font-size: 1.5em;
     }
+
     .featured-image-wrapper {
       img {
         margin: 15px 0px;

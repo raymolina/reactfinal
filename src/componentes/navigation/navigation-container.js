@@ -1,9 +1,9 @@
 import React from "react";
 import axios from "axios";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 
-const NavigationContainer = (props) => {
+const NavigationComponent = (props) => {
   const dynamicLink = (route, linkText) => {
     return (
       <div className="nav-link-wrapper">
@@ -17,7 +17,7 @@ const NavigationContainer = (props) => {
   const handleSignOut = () => {
     axios
       .delete("https://api.devcamp.space/logout", { withCredentials: true })
-      .then(response => {
+      .then((response) => {
         if (response.status === 200) {
           props.history.push("/");
           props.handleSuccessfulLogout();
@@ -28,6 +28,7 @@ const NavigationContainer = (props) => {
         console.log("Error signing out", error);
       });
   };
+
   return (
     <div className="nav-wrapper">
       <div className="left-side">
@@ -61,13 +62,15 @@ const NavigationContainer = (props) => {
       </div>
 
       <div className="right-side">
-        RAY MOLINA
+        Ray Molina B
         {props.loggedInStatus === "LOGGED_IN" ? (
-          <a href= "/" onClick={handleSignOut}><FontAwesomeIcon icon="sign-out-alt" /></a>
+          <a href="/" onClick={handleSignOut}>
+            <FontAwesomeIcon icon="sign-out-alt" />
+          </a>
         ) : null}
       </div>
     </div>
   );
 };
 
-export default (NavigationContainer);
+export default NavigationComponent;
